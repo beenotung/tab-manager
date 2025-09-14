@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>firefox-addon-demo popup</title>
+    <link rel="stylesheet" href="/popup/popup.css" />
+  </head>
+  <body>
+    <h1>firefox-addon-demo popup</h1>
+    <div>
+      <button id="openPopupButton">Open Popup</button>
+    </div>
+    <div>
+      <button id="loadCurrentTabsButton">Load Current Tabs</button>
+      <button id="saveTabsButton">Save Tabs</button>
+      <button id="restoreTabsButton">Restore Tabs</button>
+    </div>
+    <p id="message"></p>
+    <div id="tabsNode"></div>
+    <script src="/dist/popup.js"></script>
+  </body>
+</html>

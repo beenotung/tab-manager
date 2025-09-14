@@ -1,0 +1,29 @@
+{
+  "name": "firefox-addon-demo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo dist/*.test.d.ts dist/*.test.js dist/*.spec.d.ts dist/*.spec.js",
+    "tsc": "tsc -p .",
+    "dev": "tsc -p . --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/firefox-webext-browser": "^120.0.4",
+    "@types/node": "^24.3.2",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
+}
