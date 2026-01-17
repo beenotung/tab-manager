@@ -13,7 +13,9 @@ async function check_duplicate_tabs() {
   let i = 0
   for (let tab of tabs) {
     i++
-    console.log(`${i}/${n}`)
+    if (i % 100 === 0 || i === n) {
+      console.log(`${i}/${n}`)
+    }
 
     let tabLink = tab.querySelector('a.tabLink')
     let url = tabLink.href
