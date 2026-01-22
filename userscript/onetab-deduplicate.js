@@ -11,6 +11,7 @@ async function check_duplicate_tabs() {
 
   let n = tabs.length
   let i = 0
+  let removed = 0
   for (let tab of tabs) {
     i++
     if (i % 100 === 0 || i === n) {
@@ -29,7 +30,8 @@ async function check_duplicate_tabs() {
       continue
     }
 
-    console.log('duplicate:', { title: tabLink.textContent, url })
+    removed++
+    console.log(`duplicate #${removed}:`, { title: tabLink.textContent, url })
 
     let removeButton = tab.querySelector(
       '.tabLinkText [srcset="images/cross.svg"]',
