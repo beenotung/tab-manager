@@ -17,6 +17,7 @@ function deduplicate_in_trash(active_links) {
     console.log('Deleting link in trash:', link.href)
     button.click()
   }
+  console.log('removed', removed_links.length, 'links in trash')
   return removed_links
 }
 
