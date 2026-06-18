@@ -5,8 +5,18 @@ function scan_link() {
 function deduplicate_in_trash(active_links) {
   let links = document.querySelectorAll('a.tabLink[href]')
   let removed_links = []
+  let saw_links = new Set()
   for (let link of links) {
-    if (!active_links.includes(link.href)) {
+    let should_remove = false
+    if (saw_links.has(link.href)) {
+      should_remove = true
+    } else {
+      saw_links.add(link.href)
+    }
+    if (active_links.includes(link.href)) {
+      should_remove = true
+    }
+    if (!should_remove) {
       continue
     }
     let button = link.parentElement.querySelector('.controlButton.red')
