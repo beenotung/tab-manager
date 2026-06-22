@@ -94,13 +94,38 @@ function run_in_trash(active_links) {
   remove_empty_tab_groups_in_trash()
 }
 
+function getCurrentPage() {
+  let labels = Array.from(
+    document.querySelectorAll('.editInPlaceLabelSpan'),
+    s => s.innerText,
+  ).filter(s => s == 'All' || s === 'Trash')
+  let All = labels.filter(s => s === 'All').length
+  let Trash = labels.filter(s => s === 'Trash').length
+  if (All == 2 && Trash == 1) {
+    return 'Active'
+  }
+  if (All == 1 && Trash == 2) {
+    return 'Trash'
+  }
+  throw new Error('Unknown page')
+}
+
 function main() {
+  let page = getCurrentPage()
+
   /* scan active tabs */
-  // let active_links = run_in_active_tab()
-  let active_links = []
+  if (page === 'Active') {
+    let active_links = run_in_active_tab()
+    console.log(
+      'Right click, copy object, paste to the active_links variable, when move to the trash page to continue',
+    )
+  }
 
   /* scan trash */
-  run_in_trash(active_links)
+  if (page === 'Trash') {
+    let active_links = []
+    run_in_trash(active_links)
+  }
 }
 
 main()
